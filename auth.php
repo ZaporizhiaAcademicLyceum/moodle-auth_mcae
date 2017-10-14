@@ -121,7 +121,7 @@ class auth_plugin_mcae extends auth_plugin_manual {
         $cohortslist = array();
         foreach ($cohorts as $cohort) {
             $cid = $cohort->id;
-            $cname = format_string($cohort->idnumber);
+            $cname = $cohort->idnumber;
             $cohortslist[$cid] = $cname;
         }
 
