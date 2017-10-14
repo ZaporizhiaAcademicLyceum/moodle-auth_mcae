@@ -116,12 +116,12 @@ class auth_plugin_mcae extends auth_plugin_manual {
             $clause['component'] = self::COMPONENT_NAME;
         };
 
-        $cohorts = $DB->get_records('cohort', $clause);
+        $cohorts = $DB->get_records('cohort');
 
         $cohortslist = array();
         foreach ($cohorts as $cohort) {
             $cid = $cohort->id;
-            $cname = format_string($cohort->name);
+            $cname = format_string($cohort->idnumber);
             $cohortslist[$cid] = $cname;
         }
 
