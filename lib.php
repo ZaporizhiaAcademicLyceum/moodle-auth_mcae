@@ -41,7 +41,7 @@ function mcae_prepare_profile_data($data, $replaceempty = 'EMPTY') {
                     if ($val === '' or $val === ' ' or $val === null) {
                         $str = ($val === false) ? 'false' : $replaceempty;
                     } else {
-                        $str = ($val === true) ? 'true' : format_string("$val");
+                        $str = ($val === true) ? 'true' : "$val";
                     }
                     $newdata[$key] = substr($str, 0, 100);
                 }
@@ -51,7 +51,7 @@ function mcae_prepare_profile_data($data, $replaceempty = 'EMPTY') {
         if ($data === '' or $data === ' ' or $data === null) {
             $str = ($data === false) ? 'false' : $replaceempty;
         } else {
-            $str = ($data === true) ? 'true' : format_string("$data");
+            $str = ($data === true) ? 'true' : "$data";
         }
         $newdata = substr($str, 0, 100);
     }
@@ -78,12 +78,12 @@ function mcae_print_profile_data($data, $prefix = '', &$result) {
                 mcae_print_profile_data($val, $field, $result);
             } else {
                 $field = ($prefix == '') ? "$key" : "$prefix.$key";
-                $title = format_string($val);
+                $title = "$val";
                 $result[] = "<span title=\"$title\">{{ $field }}</span>";
             }
         }
     } else {
-        $title = format_string($data);
+        $title = "$data";
         $result[] = "<span title=\"$title\">{{ $prefix }}</span>";
     }
 }
